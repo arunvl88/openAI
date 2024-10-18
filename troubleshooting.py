@@ -14,14 +14,19 @@ file = client.files.create(
 # Step 2: Create an Assistant
 assistant = client.beta.assistants.create(
     name="City Information Assistant",
-    instructions=(
-        "You are an assistant that provides information about people's favorite cities "
-        "based on the provided CSV data. When asked about a person's favorite city, use the Code Interpreter "
-        "to read the provided file and give the full information, including any additional facts."
-    ),
+    instructions="""
+You are an assistant that provides comprehensive information about people's favorite cities. When asked about a person's favorite city, follow these steps:
+
+1. Read the CSV file and locate the row for the specified person.
+2. Extract the full content of the 'favourite_city_and_why' column for that person.
+3. Display the raw content of the cell, treating it as a single string and preserving all information, including any commas or additional facts within the cell.
+4. After showing the raw data, provide a detailed explanation of the information, including all aspects mentioned in the cell.
+
+    """,
     model="gpt-4",
-    tools=[{"type": "code_interpreter"}]  # Do not include files directly here
+    tools=[{"type": "code_interpreter"}]
 )
+
 
 # Step 3: Create a Thread
 thread = client.beta.threads.create()
@@ -31,7 +36,7 @@ message = client.beta.threads.messages.create(
     thread_id=thread.id,
     role="user",
     content=(
-        "What is Tina Escobar's favorite city and why? Please provide the full information, "
+        "What is Tina Escobar's favorite city and why? "
         f"including any additional facts, using the data from the file with ID: {file.id}."
     )
 )
@@ -61,7 +66,7 @@ message = client.beta.threads.messages.create(
     thread_id=thread.id,
     role="user",
     content=(
-        "What is James Padilla's favorite city and why? Please provide the full information, "
+        "What is James Padilla's favorite city and why?"
         f"including any additional facts, using the data from the file with ID: {file.id}."
     )
 )
