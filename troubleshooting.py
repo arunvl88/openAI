@@ -1,6 +1,20 @@
-# Note: Please vavigate back to openAI directory to find another solution (via function calling):
+"""
+===============================================================================
+IMPORTANT NOTE:
 
-#Code 2 fixing the issue via prompt tuning (instructions)
+This file demonstrates one approach to solving the truncation issue 
+using prompt tuning (instructions to the AI).
+
+For an alternative solution using custom functions, please refer to the 
+'function_solution.py' file in the OpenAI directory.
+
+Both approaches have their merits, and I apologize for not initially 
+mentioning the function-based solution in the customer communication.
+
+===============================================================================
+"""
+
+#Code 1 fixing the issue via prompt tuning (instructions)
 
 import os
 import time
