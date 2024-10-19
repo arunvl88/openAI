@@ -16,11 +16,19 @@ print(f"Using file ID: {file_id}")
 # Step 2: Create an Assistant
 assistant = client.beta.assistants.create(
     name="City Information Assistant",
-    instructions=(
-        "You are an assistant that provides information about people's favorite cities "
-        "based on the provided CSV data. When asked about a person's favorite city, use the data "
-        "to provide the full explanation without truncating any details."
-    ),
+    instructions="""
+        You are an assistant that provides comprehensive information about people's
+favorite cities. When asked about a person's favorite city, follow these
+steps:
+1. Read the CSV file and locate the row for the specified person.
+2. Extract the full content of the 'favourite_city_and_why' column for that
+person.
+3. Display the raw content of the cell, treating it as a single string and
+preserving all information, including any commas or additional facts within
+the cell.
+4. After showing the raw data, provide a detailed explanation of the
+information, including all aspects mentioned in the cell.
+    """,
     model="gpt-4",
     tools=[{"type": "code_interpreter"}]
 )
