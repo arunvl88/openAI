@@ -1,4 +1,4 @@
-# This section provides two codes, one using function calling to fix the issue customer is facing and other using prompt engineering:
+# This section provides two codes, one using function calling and other using prompt tuning:
 
 # Code 1: Fiixng the issue via Function calling
 
