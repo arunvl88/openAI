@@ -8,8 +8,8 @@ import pandas as pd
 # Initialize the OpenAI client
 client = openai.OpenAI()
 
-# Step 1: Upload the file (already done earlier)
-file_id = 'file-UyWuOXh1i3IxcbMXqZMJflFp'  # You uploaded this earlier
+# Step 1: Upload the file 
+file_id = 'file-UyWuOXh1i3IxcbMXqZMJflFp'  
 
 # Step 2: Load the CSV data into a DataFrame
 file_path = 'tse_takehome_dataset.csv'
