@@ -8,9 +8,6 @@ using prompt tuning (instructions to the AI).
 For an alternative solution using custom functions, please refer to the 
 'function_solution.py' file in the OpenAI directory.
 
-Both approaches have their merits, and I apologize for not initially 
-mentioning the function-based solution in the customer communication.
-
 ===============================================================================
 """
 
